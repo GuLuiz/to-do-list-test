@@ -46,6 +46,47 @@
         font-weight: bold;
     }
 }
+@media (max-width: 768px) {
+    .task-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .task-table thead {
+        display: none; 
+    }
+
+    .task-table tbody {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .task-table tr {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        padding: 10px;
+        background: #f9f9f9;
+        border-radius: 8px;
+    }
+
+    .task-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px;
+    }
+
+    .task-table td::before {
+        font-weight: bold;
+    }
+
+    .btn {
+        width: auto;
+        height: auto;
+        padding: 6px 10px;
+    }
+}
 
 .btn {
     padding: 8px 12px;
