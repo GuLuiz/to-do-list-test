@@ -3,7 +3,7 @@
         <h2>Adicionar Nova Tarefa</h2>
         <form [formGroup]="addTask">
             <div class="form-group">
-                <label for="titulo">Título</label>
+                <label for="titulo">Title</label>
                 <input id="titulo" type="text" formControlName="titulo" />
                 <div *ngIf="addTask.get('titulo')?.invalid && addTask.get('titulo')?.touched" class="error">
                     O título é obrigatório.

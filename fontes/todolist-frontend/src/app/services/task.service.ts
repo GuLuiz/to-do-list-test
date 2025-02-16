@@ -54,6 +54,6 @@ export class TaskService {
   }
 
   findByStatus(status: string): Observable<TaskInterface>{
-    return this.httpClient.get<TaskInterface>(`${this.URL_TASK}/${status}`,{"headers": this.headers});
+    return this.httpClient.get<TaskInterface>(`${this.URL_TASK}/status/${status}`,{"headers": this.headers});
   }
 }
