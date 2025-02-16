@@ -2,6 +2,8 @@ package br.com.todolist.entities;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,11 +33,13 @@ public class TaskEntity {
 
     private StatusTask status;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime creationDate;
-
-
+    
     @PrePersist
     protected void onCreate() {
         this.creationDate = LocalDateTime.now();
     }
+
+    
 }
