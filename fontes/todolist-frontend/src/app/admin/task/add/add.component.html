@@ -1,0 +1,30 @@
+<div class="overlay" *ngIf="isModalOpen">
+    <div class="modal">
+        <h2>Adicionar Nova Tarefa</h2>
+        <form [formGroup]="addTask">
+            <div class="form-group">
+                <label for="titulo">Título</label>
+                <input id="titulo" type="text" formControlName="titulo" />
+                <div *ngIf="addTask.get('titulo')?.invalid && addTask.get('titulo')?.touched" class="error">
+                    O título é obrigatório.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao" formControlName="descricao"></textarea>
+                <div *ngIf="addTask.get('descricao')?.invalid && addTask.get('descricao')?.touched" class="error">
+                    A descrição é obrigatória.
+                </div>
+            </div>
+
+            <div class="button-group">
+
+                <div class="right-buttons">
+                    <button type="button" class="cancel" (click)="cancelar()">Cancelar</button>
+                    <button type="submit" [disabled]="addTask.invalid" (click)="onSubmit()">Adicionar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
