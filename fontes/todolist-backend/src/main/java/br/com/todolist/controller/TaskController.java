@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.todolist.entities.StatusTask;
 import br.com.todolist.entities.TaskEntity;
-import br.com.todolist.service.TaskService;
+import br.com.todolist.service.interfaces.ITaskService;
+import jakarta.transaction.Transactional;
 
 @RestController
 @RequestMapping("/task")
@@ -24,7 +26,7 @@ import br.com.todolist.service.TaskService;
 public class TaskController {
     
     @Autowired
-    private TaskService service;
+    private ITaskService service;
 
     @GetMapping("/")
     public List<TaskEntity> listAll(){
@@ -36,20 +38,28 @@ public class TaskController {
         return service.findById(id);
     }
 
-    @PostMapping("/newTask")
-    public TaskEntity save(TaskEntity task){
-        return service.save(task);
+    @Transactional
+    @PostMapping("/")
+    public ResponseEntity<TaskEntity> save(@RequestBody TaskEntity task) {
+        System.out.println("Recebido: " + task);
+        task = service.save(task);
+        return ResponseEntity.ok().body(task);
     }
 
+    @Transactional
     @PutMapping("/{id}")
-    public TaskEntity update(@PathVariable Integer id, @RequestBody TaskEntity task){
-        task.setId(id);
-        return service.save(task);
+    public ResponseEntity<TaskEntity> update(@PathVariable Integer id, @RequestBody TaskEntity task){
+        
+        TaskEntity taskUpdated = service.updateTask(task);
+        return ResponseEntity.ok().body(taskUpdated);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable Integer id){
-        service.deletar(id);
+    @Transactional
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Integer id){
+        
+        service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/status/{status}")
