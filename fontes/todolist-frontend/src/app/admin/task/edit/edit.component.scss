@@ -50,12 +50,12 @@ h2 {
 
 .button-group {
     display: flex;
-    justify-content: space-between; // Distribui os botões nos cantos
+    justify-content: space-between;
     align-items: center;
     margin-top: 15px;
 
     .left-buttons {
-        margin-right: auto; // Empurra os botões da direita
+        margin-right: auto;
     }
 
     button {
