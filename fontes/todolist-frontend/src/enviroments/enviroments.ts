@@ -1,3 +1,3 @@
 export const enviroments ={
-    appUrl: "http://dbtodolist:8080/todolist/"
+    appUrl: "http://localhost:8080/todolist/"
 }
