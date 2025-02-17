@@ -23,10 +23,8 @@ Abra um terminal e execute:
 
 ```sh
 # Clonar o repositório do projeto
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/GuLuiz/to-do-list-test.git
 
-# Acesse a pasta do projeto
-cd seu-repositorio
 ```
 
 ### 3️⃣ **Criar a Rede Docker**
@@ -109,12 +107,9 @@ docker exec -it backendtodolist sh
 
 ---
 
-## 📌 **Conclusão**
-Agora você tem um ambiente completo para rodar sua aplicação de To-Do List com **Docker**! 🚀 Caso tenha dúvidas ou precise de melhorias, sinta-se à vontade para contribuir.
-
 ---
 
 ### 📧 **Contato**
 Se precisar de ajuda, entre em contato:
-- ✉️ Email: [seuemail@email.com](mailto:seuemail@email.com)
-- 🔗 LinkedIn: [linkedin.com/in/seu-perfil](https://linkedin.com/in/seu-perfil)
+- ✉️ Email: [seuemail@email.com](gustaluizgonc@gmail.com)
+- 🔗 LinkedIn: [linkedin.com/in/seu-perfil](https://www.linkedin.com/in/gustavo-luiz-605a56225/)
