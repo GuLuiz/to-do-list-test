@@ -26,6 +26,7 @@
   .form-group {
     margin-bottom: 15px;
     text-align: left;
+    margin-right: 15px;
   
     label {
       display: block;
@@ -61,17 +62,25 @@
     }
   
     button[type="submit"] {
-      background: #28a745;
-      color: white;
+      background: #61946d;
+      color: black;
       border: black solid 2px;
       align-items: end;
+      box-shadow: 3px 2px 6px rgb(61, 61, 61);
+      &:hover {
+        background: #a5e0c8;
+    }
     }
   
     .cancel {
-      background: rgb(139, 139, 139);
-      color: white;
+      background: #a7acaf;
+      color: black;
       border: black solid 2px;
       margin-right: 8px;
+      box-shadow: 3px 2px 6px rgb(61, 61, 61);
+      &:hover {
+        background: #e1e6eb;
+    }
     }
   }
   

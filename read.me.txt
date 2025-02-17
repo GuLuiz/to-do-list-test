@@ -1,0 +1,62 @@
+Criar a rede comum no docker: Docker create network net-todolist 
+
+Postgres:
+
+
+Baixar imagem postgres: docker pull postgres:17.3
+
+Criação contêiner postgres: docker run -d --network net-todolist --name dbtodolist -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=1533 -e POSTGRES_DB=todolist -p 5432:5432 postgres:17.3
+
+
+Backend:
+
+
+Baixar image jdk versão 17: docker pull openjdk:17
+
+Criação contêiner backendtodolist: docker run -it -d --network net-todolist --name backendtodolist -p 8080:8080 openjdk:17
+
+abrir o terminal no contêiner java para criar usuario: useradd todolist
+
+abrir o terminal no contêiner java para criar a senha: gpasswd todolist 
+
+colocar a senha: todolist
+
+Entrar na pasta target: to-do-list-test\fontes\todolist-backend\target
+
+copiar o jar para dentro do contêiner do java: docker cp To-Do-List-0.0.1-SNAPSHOT.jar backendtodolist:/home/todolist/.
+
+entre na pasta do jar: cd home
+
+cd todolist
+
+Inicie o backend: java -jar To-Do-List-0.0.1-SNAPSHOT.jar
+
+
+Frontend:
+
+
+baixar imagem do node: docker pull node:22-alpine
+
+Criação contêiner frontendtodolist: docker run -it -d --network net-todolist --name frontendtodolist -p 4200:4200 node:22-alpine
+
+Abrir o terminal do frontend no Docker e baixar o angular: npm install -g @angular/cli
+
+abrir o terminal no contêiner angular para criar usuario: adduser todolist
+
+defina senha: todolist
+
+entre dentro da pasta: cd home
+
+cd todolist
+
+Entre na pasta fontes do projeto e copie a pasta para dentro do contêiner do frontendtodolist: docker cp todolist-frontend frontendtodolist:/home/todolist/.
+
+entra na pasta: cd todolist-frontend
+
+remova o node modules: rm -r node_modules
+
+remova o package-lock.json: rm package-lock.json
+
+Instale o npm para o projeto: npm install
+
+e rode o projeto com: ng serve --host 0.0.0.0
