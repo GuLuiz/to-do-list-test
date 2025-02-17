@@ -111,5 +111,5 @@ docker exec -it backendtodolist sh
 
 ### 📧 **Contato**
 Se precisar de ajuda, entre em contato:
-- ✉️ Email: [seuemail@email.com](gustaluizgonc@gmail.com)
-- 🔗 LinkedIn: [linkedin.com/in/seu-perfil](https://www.linkedin.com/in/gustavo-luiz-605a56225/)
+- ✉️ Email: [gustaluizgonc@gmail.com](gustaluizgonc@gmail.com)
+- 🔗 LinkedIn: [https://www.linkedin.com/in/gustavo-luiz-605a56225/](https://www.linkedin.com/in/gustavo-luiz-605a56225/)
