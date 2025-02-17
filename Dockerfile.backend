@@ -1,0 +1,13 @@
+### Dockerfile do Backend
+FROM openjdk:17
+
+RUN useradd -m todolist && \
+    echo "todolist:todolist" | chpasswd
+
+WORKDIR /home/todolist
+
+COPY /fontes/todolist-backend/target/To-Do-List-0.0.1-SNAPSHOT.jar /home/todolist/app.jar
+
+EXPOSE 8080
+
+CMD ["java", "-jar", "app.jar"]	

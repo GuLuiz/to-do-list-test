@@ -63,12 +63,14 @@
     button[type="submit"] {
       background: #28a745;
       color: white;
+      border: black solid 2px;
       align-items: end;
     }
   
     .cancel {
-      background: #dc3545;
+      background: rgb(139, 139, 139);
       color: white;
+      border: black solid 2px;
       margin-right: 8px;
     }
   }

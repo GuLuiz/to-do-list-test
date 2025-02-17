@@ -1,0 +1,17 @@
+### Dockerfile do Frontend
+FROM node:22-alpine
+
+RUN adduser -D todolist && \
+    echo "todolist:todolist" | chpasswd
+
+WORKDIR /home/todolist
+
+COPY /fontes/todolist-frontend /home/todolist/todolist-frontend
+
+WORKDIR /home/todolist/todolist-frontend
+
+RUN rm -rf node_modules package-lock.json && npm install
+
+EXPOSE 4200
+
+CMD ["npm", "run", "start", "--", "--host", "0.0.0.0"]
