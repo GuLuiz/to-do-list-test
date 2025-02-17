@@ -23,6 +23,13 @@ import lombok.Setter;
 @Setter
 public class TaskEntity {
 
+    public TaskEntity(Integer id, String descricao, String titulo, StatusTask status) {
+        this.id = id;
+        this.descricao = descricao;
+        this.titulo = titulo;
+        this.status = status;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
